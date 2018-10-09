@@ -7,7 +7,7 @@
   <div class="row">
 
     <div class="col-12 col-md-8">
-      <div *ngIf="session.identity" class="p-3 box-shadow news text-justify">
+      <div *ngIf="session.identity else no_session" class="p-3 box-shadow news text-justify">
         <h6 class="border-new border-gray pb-2 mb-0">{{content.data.title}}
 
           <button *ngIf="session.identity" (click)="newNotice = {}" type="button" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm add">{{content.data.edit_menu.new_btn}} <i class="fas fa-plus"></i></button>
@@ -114,3 +114,11 @@
 
 
 </div>
+
+<ng-template #no_session>
+
+  <div class="alert alert-danger" role="alert">
+    Debes <b>iniciar sesión</b> para ver las publicaciones
+  </div>
+
+</ng-template>
