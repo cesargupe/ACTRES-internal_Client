@@ -1,0 +1,32 @@
+.margin_top_bottom{
+  margin-top: 40px;
+  margin-bottom: 60px;
+}
+
+.title-blue_grey{
+  --color :#6d8a9c!important;
+  font-weight: 400;
+  color: #6a8bc7;
+}
+
+.big-logo{
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 30px;
+}
+
+.margin-left_right_50{
+  max-width: 1400px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.border_radius_blue{
+    border-radius: 15px;
+    border: 1px solid rgba(97, 153, 185, 0.24);
+}
+
+b{
+  font-size: 300px;
+  font-weight: 500px;
+}
