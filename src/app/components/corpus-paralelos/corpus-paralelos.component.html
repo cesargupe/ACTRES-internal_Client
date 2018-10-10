@@ -3,7 +3,7 @@
   <!--<h1 class="text-center general-title">{{content.data.title}}</h1>-->
 
 
-    <div *ngIf="session.identity" class="center_menu">
+    <div *ngIf="session.identity && session.identity.role == 'ROLE_ADMIN'" class="center_menu">
       <button (click)="newContent = {'index': 0}" type="button" data-toggle="modal" data-target="#modifyContent" class="btn btn-outline-primary btn-sm add">{{content.data.edit_menu.new_btn}} <i class="fas fa-plus"></i></button>
     </div>
 
@@ -13,7 +13,7 @@
       <div class="card-body">
         <p class="card-title align-middle">{{corpus.name}}</p>
         <h5 class="card-subtitle text-grey">{{corpus.author}} <span class="acronym">- {{corpus.acronym}}</span></h5>
-        <div *ngIf="session.identity" class="edit_menu mt-3">
+        <div *ngIf="session.identity && session.identity.role == 'ROLE_ADMIN'" class="edit_menu mt-3">
           <button type="button" (click)="newContent = deepCopy(corpus, index)" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
           <button type="button" (click)="deleteContent(index)" class="transparent btn btn-outline-danger btn-sm mr-1"><i class="far fa-trash-alt"></i></button>
         </div>

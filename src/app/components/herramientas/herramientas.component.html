@@ -2,7 +2,7 @@
 
   <!--<h1 class="text-center general-title">Tagsets</h1>-->
 
-  <div *ngIf="session.identity" class="center_menu">
+  <div *ngIf="session.identity && session.identity.role == 'ROLE_ADMIN'" class="center_menu">
     <button (click)="newContent = {'index': 0}" type="button" data-toggle="modal" data-target="#modifyContent" class="btn btn-outline-primary btn-sm add">{{content.data.edit_menu.new_btn}} <i class="fas fa-plus"></i></button>
   </div>
 
@@ -30,7 +30,7 @@
 
     <div class="card-footer">
 
-      <div *ngIf="session.identity" class="float-left mt-1">
+      <div *ngIf="session.identity && session.identity.role == 'ROLE_ADMIN'" class="float-left mt-1">
         <button type="button" (click)="newContent = deepCopy(tool, index)" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
         <button type="button" (click)="deleteContent(index)" class="transparent btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i></button>
       </div>

@@ -14,7 +14,6 @@ import { CorpusComparablesComponent } from './components/corpus-comparables/corp
 import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-paralelos.component';
 import { HerramientasComponent } from './components/herramientas/herramientas.component';
 import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
-import { NoticiasComponent } from './components/noticias/noticias.component';
 import { FichaTecnicaComponent } from './components/ficha-tecnica/ficha-tecnica.component';
 import { AccesoComponent } from './components/acceso/acceso.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
@@ -29,7 +28,6 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     CorpusParalelosComponent,
     HerramientasComponent,
     AplicacionesComponent,
-    NoticiasComponent,
     FichaTecnicaComponent,
     AccesoComponent,
     UsuariosComponent

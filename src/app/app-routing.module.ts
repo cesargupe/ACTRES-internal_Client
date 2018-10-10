@@ -6,7 +6,6 @@ import { CorpusComparablesComponent } from './components/corpus-comparables/corp
 import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-paralelos.component';
 import { HerramientasComponent } from './components/herramientas/herramientas.component';
 import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
-import { NoticiasComponent } from './components/noticias/noticias.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { Error404Component } from './components/error404/error404.component';
 
@@ -17,7 +16,6 @@ const appRoutes: Routes = [
   {path: 'corpus-paralelos', component: CorpusParalelosComponent},
   {path: 'herramientas', component: HerramientasComponent},
   {path: 'aplicaciones', component: AplicacionesComponent},
-  {path: 'noticias', component: NoticiasComponent},
   {path: 'usuarios', component: UsuariosComponent},
   {path: '**', component: Error404Component}
 ];
