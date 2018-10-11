@@ -21,6 +21,7 @@ export class UserService {
   signIn(user_to_login){
 
     let params = JSON.stringify(user_to_login);
+    console.log(user_to_login)
 
     let headers = new Headers({
       'Content-Type':'application/json'
@@ -82,7 +83,6 @@ export class UserService {
     }
 
     return sesion;
-    //return {identity: '', token: ''};
 
   }
 
@@ -92,6 +92,18 @@ export class UserService {
     localStorage.removeItem('token');
 
     this.storage.next("change");
+
+  }
+
+   loginPHP(url) {
+
+    var newWindow = window.open(url, '_blank');
+
+
+    setTimeout(function(){
+      newWindow.close();
+    }, 200);
+
 
   }
 
