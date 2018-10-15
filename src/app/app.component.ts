@@ -62,6 +62,12 @@ export class AppComponent implements OnInit{
 
   }
 
+  logOut(){
+
+    this._userService.removeSession();
+
+  }
+
   watchStorage(){
     this._contentService.watchStorage().subscribe((data:string) => {
       this.language = data;
@@ -71,6 +77,11 @@ export class AppComponent implements OnInit{
     this._userService.watchStorage().subscribe((data:string) => {
       this.session = this._userService.getSession();
     });
+  }
+
+  openLogin(){
+    console.log(document.getElementById('loginForm').innerHTML);
+    document.getElementById('loginForm').click();
   }
 
 }

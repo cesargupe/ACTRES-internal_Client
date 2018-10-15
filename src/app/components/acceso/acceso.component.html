@@ -1,10 +1,4 @@
-<li *ngIf="!session.identity" class="nav-item">
-
-  <a class="nav-link" href="#" id="loginForm" role="button" data-toggle="dropdown">
-    <i class="fas fa-sign-in-alt"></i>
-  </a>
-
-  <form *ngIf="content" ngNativeValidate #loginForm="ngForm" (ngSubmit)="login()" class="dropdown-menu dropdown-menu-right p-4" aria-labelledby="loginForm">
+<form *ngIf="content" ngNativeValidate #loginForm="ngForm" (ngSubmit)="login()" class="dropdown-menu dropdown-menu-right p-4" aria-labelledby="loginForm">
 
     <div class="form-group">
       <label>{{content.data.username_title}}</label>
@@ -22,14 +16,4 @@
 
     <input type="submit" value="{{content.data.btnLogin_title}}" class="btn btn-primary btn-block mt-3" />
 
-  </form>
-
-</li>
-
-<li *ngIf="session.identity" class="nav-item">
-
-  <a class="nav-link btn" role="button" (click)="logOut()">
-    <i class="fas fa-sign-out-alt"></i>
-  </a>
-
-</li>
+</form>

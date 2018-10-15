@@ -60,12 +60,6 @@ export class AccesoComponent implements OnInit {
 
   }
 
-  logOut(){
-
-    this._userService.removeSession();
-
-  }
-
   watchStorage(){
     this._contentService.watchStorage().subscribe((data:string) => {
       this.language = data;

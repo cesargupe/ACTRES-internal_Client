@@ -50,7 +50,23 @@
           <a class="nav-link" [routerLink]="['/usuarios']" [routerLinkActive]="['active']"><i class="fas fa-users"></i></a>
         </li>
 
-        <app-acceso></app-acceso>
+        <li *ngIf="!session.identity" class="nav-item">
+
+          <a class="nav-link" href="#" id="loginForm" role="button" data-toggle="dropdown">
+            <i class="fas fa-sign-in-alt"></i>
+          </a>
+
+          <app-acceso></app-acceso>
+
+        </li>
+
+        <li *ngIf="session.identity" class="nav-item">
+
+          <a class="nav-link btn" role="button" (click)="logOut()">
+            <i class="fas fa-sign-out-alt"></i>
+          </a>
+
+        </li>
 
       </ul>
 
@@ -64,8 +80,10 @@
     </div>
 
     <div *ngIf="!session.identity" class="container-fluid margin_top_bottom">
-      <h2 class="text-center">{{content.data.no_session[0]}}</h2>
-      <h4 class="text-center"><a href="https://actres.unileon.es/wordpress/">{{content.data.no_session[1]}}</a></h4>
+      <div class="margin_left_right">
+        <h3 class="text-center">Bienvenido a la plataforma de desarrollo para miembros del grupo de investigación ACTRES. Si lo que está buscando es la página web del grupo, diríjase a <a href="https://actres.unileon.es/wordpress">ACTRES</a>.</h3>
+        <h4 class="text-center">En caso contrario, inicie sesión <a href="#" id="loginForm" role="button" data-toggle="dropdown">aqui</a><app-acceso></app-acceso></h4>
+      </div>
     </div>
 
   </main>
