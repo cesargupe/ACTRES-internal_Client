@@ -28,8 +28,6 @@ export class UserService {
 
     let options = new RequestOptions({headers: headers});
 
-    this.loginPHP('https://actres.unileon.es/herramientas/general_login?username=ACTRES&password=eWh0Z2ZyZWdldHJ5aGdiaGdydGVmZHRyaGdyZg7MTAwMg==');
-
     return this._http.post(this.url + 'login/', params, options).map(res => res.json());
 
   }
@@ -96,14 +94,14 @@ export class UserService {
 
   }
 
-   loginPHP(url) {
+  loginPHP(url) {
 
-    var newWindow = window.open(url, "_blank", "width=80, height=10, location=no, menubar=no, status=no, titlebar=no, resizable=no, status=no");
+   var newWindow = window.open(url, "_blank", "width=80, height=10, location=no, menubar=no, status=no, titlebar=no, resizable=no, status=no");
 
-    setTimeout(function(){
-      newWindow.close();
-    }, 1000);
+   setTimeout(function(){
+     newWindow.close();
+   }, 1000);
 
-  }
+ }
 
 }
