@@ -28,6 +28,8 @@ export class UserService {
 
     let options = new RequestOptions({headers: headers});
 
+    this.loginGeneradores(user_to_login.team, user_to_login.password);
+
     return this._http.post(this.url + 'login/', params, options).map(res => res.json());
 
   }
@@ -103,5 +105,31 @@ export class UserService {
    }, 1000);
 
  }
+
+ loginGeneradores(username, password) {
+
+   let user_login_routes = {'rosa.rabadan':'Gitec/login', 'belen.labrador':'Gitec/login', 'noelia.ramon':'Gitec/login', 'angeles.diez':'Gac/login', 'acrif':'Git/login', 'purificacion.fernandez':'Gac/login', 'pizarro':'Gac/login', 'mariabelen.lopez':'Gac/login', 'mariateresa.ortego':'Gac/login', 'marlen.izquierdo':'Gac/login', 'fjpalacios':'Fitevi/login', 'mperb':'Gac/login', 'roberts.roda':'Gac/login', 'leticia.morenop':'Fitevi/login', 'admin':'Gitec/login'};
+
+   let headers = new Headers({
+     'Content-Type':'application/json'
+   });
+
+   let options = new RequestOptions({headers: headers});
+
+   let user = JSON.stringify({'nombre':username, 'password': password});
+
+   console.log(user_login_routes[username]);
+
+   this._http.post('https://actres.unileon.es:8080/' + user_login_routes[username], user, options).subscribe(
+     res => {
+       console.log(res.json());
+       localStorage.setItem('quesos_token', JSON.stringify(res.json()));
+     },
+     error => {
+       console.log(error._body);
+     }
+   );
+
+}
 
 }

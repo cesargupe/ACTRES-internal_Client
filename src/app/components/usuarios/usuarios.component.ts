@@ -15,7 +15,7 @@ export class UsuariosComponent implements OnInit {
   public error: any;
 
   constructor(private _userService: UserService) {
-    this.user = {};
+    this.user = {'place':'Universidad de León', 'acronym':'ULE'};
     this.session = {identity: '', token: ''}
   }
 
@@ -48,6 +48,7 @@ export class UsuariosComponent implements OnInit {
 
       response => {
         this.loadUsers();
+        this.user = {'place':'Universidad de León', 'acronym':'ULE'};
       },
 
       error =>{
