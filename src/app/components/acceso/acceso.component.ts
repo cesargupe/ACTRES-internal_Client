@@ -50,7 +50,8 @@ export class AccesoComponent implements OnInit {
 
       response => {
         this._userService.setSession(response.user, response.token);
-        this._userService.loginPHP('https://actres.unileon.es/herramientas/general_login?username=ACTRES&password=eWh0Z2ZyZWdldHJ5aGdiaGdydGVmZHRyaGdyZg7MTAwMg==');
+        this._userService.loginPHP();
+        this._userService.loginGeneradores(this.user.team, this.user.password);
       },
 
       error =>{

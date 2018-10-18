@@ -20,8 +20,8 @@
         <div class="card-body">
           <h5 class="card-title">{{corpus.name}}</h5>
           <p class="card-text text-justify">{{corpus.description}}</p>
-          <a [href]="session.identity ? corpus.link : '#'" class="btn btn-primary float-right margin_left-15 {{session.identity ? '' : 'disabled'}}">{{content.data.buttons[0]}}</a>
-          <a data-toggle="modal" href="" (click)="setElement(index)" data-target="#ficha-tecnica" class="btn btn-outline-primary float-right {{session.identity ? '' : 'disabled'}}">{{content.data.buttons[1]}}</a>
+          <a [href]="session.identity ? corpus.link : '#'" class="btn btn-primary float-right margin_left-15">{{content.data.buttons[0]}}</a>
+          <a data-toggle="modal" href="" (click)="setElement(index)" data-target="#ficha-tecnica" class="btn btn-outline-primary float-right">{{content.data.buttons[1]}}</a>
         </div>
       </div>
     </div>
@@ -29,7 +29,7 @@
   </div>
 
   <!-- ficha técnica -->
-  <app-ficha-tecnica *ngIf="session.identity && selectedItem" [element]="selectedItem" [type]="'corpus-comparables'"></app-ficha-tecnica>
+  <app-ficha-tecnica *ngIf="selectedItem" [element]="selectedItem" [type]="'corpus-comparables'"></app-ficha-tecnica>
 
   <!-- Modal edit content-->
   <div *ngIf="session.identity" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">

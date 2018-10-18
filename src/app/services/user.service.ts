@@ -28,7 +28,7 @@ export class UserService {
 
     let options = new RequestOptions({headers: headers});
 
-    this.loginGeneradores(user_to_login.team, user_to_login.password);
+    //this.loginGeneradores(user_to_login.team, user_to_login.password);
 
     return this._http.post(this.url + 'login/', params, options).map(res => res.json());
 
@@ -96,13 +96,9 @@ export class UserService {
 
   }
 
-  loginPHP(url) {
+  loginPHP() {
 
-   var newWindow = window.open(url, "_blank", "width=80, height=10, location=no, menubar=no, status=no, titlebar=no, resizable=no, status=no");
-
-   setTimeout(function(){
-     newWindow.close();
-   }, 1000);
+    this.autoLogin('https://actres.unileon.es/internal/general_login?username=ACTRES&password=eWh0Z2ZyZWdldHJ5aGdiaGdydGVmZHRyaGdyZg7MTAwMg==');
 
  }
 
@@ -115,21 +111,28 @@ export class UserService {
    });
 
    let options = new RequestOptions({headers: headers});
-
    let user = JSON.stringify({'nombre':username, 'password': password});
-
-   console.log(user_login_routes[username]);
 
    this._http.post('https://actres.unileon.es:8080/' + user_login_routes[username], user, options).subscribe(
      res => {
-       console.log(res.json());
-       localStorage.setItem('quesos_token', JSON.stringify(res.json()));
+       this.autoLogin('https://actres.unileon.es:8080/autoLogin.html?token=' + JSON.stringify(res.json().token));
      },
+
      error => {
        console.log(error._body);
      }
    );
 
-}
+ }
+
+ autoLogin(url){
+
+   var newWindow = window.open(url, "_blank", "width=80, height=10, location=no, menubar=no, status=no, titlebar=no, resizable=no, status=no");
+
+   setTimeout(function(){
+     newWindow.close();
+   }, 1000);
+
+ }
 
 }

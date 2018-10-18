@@ -35,13 +35,13 @@
         <button type="button" (click)="deleteContent(index)" class="transparent btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i></button>
       </div>
 
-      <a class="btn btn-outline-primary float-right margin_left-15 {{session.identity ? '' : 'disabled'}}" [href]="session.identity ? application.link : '#'">{{content.data.buttons[0]}}</a>
+      <a class="btn btn-outline-primary float-right margin_left-15" [href]="application.link">{{content.data.buttons[0]}}</a>
     </div>
 
   </div>
 
   <!-- Modal edit content-->
-  <div *ngIf="session.identity" class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
 
