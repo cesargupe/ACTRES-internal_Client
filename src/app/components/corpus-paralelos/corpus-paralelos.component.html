@@ -12,7 +12,7 @@
     <div *ngFor="let corpus of content.data.corpus; let index = index" class="card corpus">
       <div class="card-body">
         <p class="card-title align-middle">{{corpus.name}}</p>
-        <h5 class="card-subtitle text-grey">{{corpus.author}} <span class="acronym">- {{corpus.acronym}}</span></h5>
+        <h5 class="card-subtitle text-grey">{{corpus.author}} <!--<span class="acronym">- {{corpus.acronym}}</span>--></h5>
         <div *ngIf="session.identity && session.identity.role == 'ROLE_ADMIN'" class="edit_menu mt-3">
           <button type="button" (click)="newContent = deepCopy(corpus, index)" data-toggle="modal" data-target="#modifyContent" class="transparent btn btn-outline-primary btn-sm mr-2"><i class="far fa-edit"></i></button>
           <button type="button" (click)="deleteContent(index)" class="transparent btn btn-outline-danger btn-sm mr-1"><i class="far fa-trash-alt"></i></button>

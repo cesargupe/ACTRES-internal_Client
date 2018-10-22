@@ -37,6 +37,7 @@
 
       <ul class="navbar-nav">
 
+        <!--
         <li class="nav-item">
           <a class="nav-link dropdown-toggle" href="#" id="languageSelect" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {{content.data.top_menu[4].text}}
@@ -45,6 +46,7 @@
             <a *ngFor="let language_page of content.data.languages" [class.active]="language == language_page.code" class="dropdown-item pointer-cursor" (click)="changeLanguage(language_page.code)">{{language_page.name}}</a>
           </div>
         </li>
+      -->
 
         <li *ngIf="session.identity && session.identity.role == 'ROLE_ADMIN'" class="nav-item">
           <a class="nav-link" [routerLink]="['/usuarios']" [routerLinkActive]="['active']"><i class="fas fa-users"></i></a>
@@ -82,7 +84,7 @@
     <div *ngIf="!session.identity" class="container-fluid margin_top_bottom">
       <div class="margin_left_right">
         <h3 class="text-center">Bienvenido a la plataforma de desarrollo para miembros del grupo de investigación ACTRES. Si lo que está buscando es la página web del grupo, diríjase a <a href="https://actres.unileon.es/wordpress">ACTRES</a>.</h3>
-        <h4 class="text-center">En caso contrario, inicie sesión <a href="#" id="loginForm" role="button" data-toggle="dropdown">aqui</a><app-acceso></app-acceso></h4>
+        <h4 class="text-center">En caso contrario, inicie sesión <a href="#" id="loginForm" role="button" data-toggle="dropdown">aquí</a><app-acceso></app-acceso></h4>
       </div>
     </div>
 
