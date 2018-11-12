@@ -62,10 +62,13 @@ export class HerramientasComponent implements OnInit {
     if (!this.newContent.author) {
 
       content.data.tools.unshift({});
-      this.newContent.author = this.session.identity.team;
+      //this.newContent.author = this.session.identity.team;
+      this.newContent.author = 'ACTRES';
       this.newContent.acronym = this.session.identity.acronym;
 
     }
+
+    console.log(this.newContent);
 
     if (this.newContent.link.split('://').length < 2) this.newContent.link = 'http://' + this.newContent.link;
     content.data.tools[this.newContent.index] = this.newContent;

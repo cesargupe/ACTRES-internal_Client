@@ -11,7 +11,8 @@ export class UserService {
   private storage = new Subject<string>();
 
   constructor(private _http: Http) {
-    this.url = 'http://actres.unileon.es/actres_internal/api/';
+    this.url = 'http://localhost:3978/api/';
+    //this.url = 'http://actres.unileon.es/actres_internal/api/';
   }
 
   watchStorage(): Observable<any> {
@@ -58,6 +59,19 @@ export class UserService {
     let options = new RequestOptions({headers: headers});
 
     return this._http.post(this.url + 'new_user/', params, options).map(res => res.json());
+
+  }
+
+  deleteUser(token, id){
+
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    return this._http.delete(this.url + 'user/' + id, options).map(res => res.json());
 
   }
 
@@ -113,15 +127,19 @@ export class UserService {
    let options = new RequestOptions({headers: headers});
    let user = JSON.stringify({'nombre':username, 'password': password});
 
-   this._http.post('https://actres.unileon.es:8080/' + user_login_routes[username], user, options).subscribe(
-     res => {
-       this.autoLogin('https://actres.unileon.es:8080/autoLogin.html?token=' + JSON.stringify(res.json().token));
-     },
+   if (user_login_routes[username]) {
 
-     error => {
-       console.log(error._body);
-     }
-   );
+     this._http.post('https://actres.unileon.es:8080/' + user_login_routes[username], user, options).subscribe(
+       res => {
+         this.autoLogin('https://actres.unileon.es:8080/autoLogin.html?token=' + JSON.stringify(res.json().token));
+       },
+
+       error => {
+         console.log(error._body);
+       }
+     );
+     
+   }
 
  }
 

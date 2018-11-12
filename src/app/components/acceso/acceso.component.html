@@ -1,21 +1,63 @@
 <div class="row">
   <form *ngIf="content" ngNativeValidate #loginForm="ngForm" (ngSubmit)="login()" class="dropdown-menu dropdown-menu-right p-4" aria-labelledby="loginForm">
 
-      <div class="form-group">
-        <label>{{content.data.username_title}}</label>
-        <input #team="ngModel" name="team" [(ngModel)]="user.team" type="text" class="form-control" placeholder="{{content.data.username_example}}" required/>
-      </div>
+    <div class="form-group">
+      <label>{{content.data.username_title}}</label>
+      <input #team="ngModel" name="team" [(ngModel)]="user.team" type="text" class="form-control" placeholder="{{content.data.username_example}}" required/>
+    </div>
 
-      <div class="form-group">
-        <label>{{content.data.password_title}}</label>
-        <input #password="ngModel" name="password" [(ngModel)]="user.password" type="password" class="form-control" placeholder="{{content.data.password_title}}" required/>
-      </div>
+    <div class="form-group">
+      <label>{{content.data.password_title}}</label>
+      <input #password="ngModel" name="password" [(ngModel)]="user.password" type="password" class="form-control" placeholder="{{content.data.password_title}}" required/>
+    </div>
 
-      <div *ngIf="error" class="alert alert-danger text-center" role="alert">
-        {{content.data.error_login}}
-      </div>
+    <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+      {{content.data.error_login}}
+    </div>
 
-      <input type="submit" value="{{content.data.btnLogin_title}}" class="btn btn-primary btn-block mt-3" />
+    <input type="submit" value="{{content.data.btnLogin_title}}" class="btn btn-primary btn-block mt-3" />
 
   </form>
+</div>
+
+<div class="modal fade" id="modifyContent" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+
+      <form *ngIf="content" ngNativeValidate #loginForm="ngForm" (ngSubmit)="login()">
+
+        <div class="modal-header">
+          <h5 class="modal-title">{{content.data.title}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="form-group">
+            <label>{{content.data.username_title}}</label>
+            <input #team2="ngModel" name="team2" [(ngModel)]="user.team" type="text" class="form-control" placeholder="{{content.data.username_example}}" required/>
+          </div>
+
+          <div class="form-group">
+            <label>{{content.data.password_title}}</label>
+            <input #password="ngModel" name="password" [(ngModel)]="user.password" type="password" class="form-control" placeholder="{{content.data.password_title}}" required/>
+          </div>
+
+          <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+            {{content.data.error_login}}
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-secondary " data-dismiss="modal">{{content.data.btnCancel_title}}</button>
+          <input type="submit" class="btn btn-primary" value="{{content.data.btnLogin_title}}" (click)="closeModal()"/>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
 </div>

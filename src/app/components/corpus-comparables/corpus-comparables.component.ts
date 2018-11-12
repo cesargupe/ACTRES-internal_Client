@@ -19,10 +19,13 @@ export class CorpusComparablesComponent implements OnInit {
   public session: any;
   public newContent: any;
 
+  public search: String;
+
   constructor(private _contentService: ContentService, private _userService: UserService) {
     this.language = _contentService.loadLanguage();
     this.session = {identity: '', token: ''};
     this.newContent = {};
+    this.search = '';
   }
 
   ngOnInit() {
@@ -65,7 +68,8 @@ export class CorpusComparablesComponent implements OnInit {
 
     if (!this.newContent.author) {
       content.data.corpus.unshift({});
-      this.newContent.author = this.session.identity.team;
+      //this.newContent.author = this.session.identity.team;
+      this.newContent.author = 'ACTRES';
     }
 
     let action = {'title': 'edit', 'datasheet': {'oldName': this.content.data.corpus[this.newContent.index].name, 'newName': this.newContent.name, 'type': 'corpus-comparables'}};

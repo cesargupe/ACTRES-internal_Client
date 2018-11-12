@@ -21,6 +21,7 @@
         <div class="col-md-9">
           <h4 class="card-title">{{application.name}}</h4>
           <h5 class="card-subtitle mb-2 text-grey">{{application.author}} <!--<span class="acronym">- {{application.acronym}}</span>--></h5>
+          <p *ngIf="application.status" class="card-text text-justify" [innerHTML]="application.status"></p>
           <p class="card-text text-justify" [innerHTML]="application.description"></p>
         </div>
 
@@ -35,7 +36,7 @@
         <button type="button" (click)="deleteContent(index)" class="transparent btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i></button>
       </div>
 
-      <a class="btn btn-outline-primary float-right margin_left-15" [href]="application.link">{{content.data.buttons[0]}}</a>
+      <a class="btn btn-outline-primary float-right margin_left-15" [href]="application.link" target="_blank">{{content.data.buttons[0]}}</a>
     </div>
 
   </div>
@@ -71,8 +72,15 @@
             </div>
 
             <div class="form-group">
+              <label>{{content.data.edit_menu.status.title}}</label>
+              <select #status="ngModel" name="status" [(ngModel)]="newContent.status" class="form-control" required>
+                <option *ngFor="let status of content.data.edit_menu.status.options" [value]="status.value">{{status.title}}</option>
+              </select>
+            </div>
+
+            <div class="form-group">
               <label>{{content.data.edit_menu.email_title}}</label>
-              <input #email="ngModel" name="email" [(ngModel)]="newContent.link" type="text" class="form-control" placeholder="www.exaple.com" required/>
+              <input #link="ngModel" name="link" [(ngModel)]="newContent.link" type="text" class="form-control" placeholder="www.exaple.com" required/>
             </div>
 
           </div>

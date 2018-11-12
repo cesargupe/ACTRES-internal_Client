@@ -6,10 +6,20 @@
     <button (click)="newContent = {'index': 0}" type="button" data-toggle="modal" data-target="#modifyContent" class="btn btn-outline-primary btn-sm add">{{content.data.edit_menu.new_btn}} <i class="fas fa-plus"></i></button>
   </div>
 
+  <br><div class="row justify-content-center">
+    <div class="col-sm-7 col-md-5 col-xl-4 input-group">
+      <div class="input-group-prepend">
+          <div class="input-group-text"><i class="fas fa-search"></i></div>
+        </div>
+      <input name="search" [(ngModel)]="search" type="text" class="form-control text-centfer bold" placeholder="{{content.data.edit_menu.search_title}}"/>
+    </div>
+  </div>
+
+
   <div class="row">
 
-    <div *ngFor="let corpus of content.data.corpus; let index = index" class="col-lg-6">
-      <div class="card card-grey">
+    <div *ngFor="let corpus of content.data.corpus; let index = index" [class]="corpus.name.toLowerCase().includes(search.toLowerCase()) || corpus.description.toLowerCase().includes(search.toLowerCase()) ? 'col-lg-6' : ''">
+      <div *ngIf="corpus.name.toLowerCase().includes(search.toLowerCase()) || corpus.description.toLowerCase().includes(search.toLowerCase())" class="card card-grey">
         <div class="card-header card_header-blue_grey">
           {{corpus.author}}
           <div *ngIf="session.identity && session.identity.role == 'ROLE_ADMIN'" class="float-right">
@@ -20,7 +30,7 @@
         <div class="card-body">
           <h5 class="card-title">{{corpus.name}}</h5>
           <p class="card-text text-justify">{{corpus.description}}</p>
-          <a [href]="session.identity ? corpus.link : '#'" class="btn btn-primary float-right margin_left-15">{{content.data.buttons[0]}}</a>
+          <a [href]="corpus.link" class="btn btn-primary float-right margin_left-15" target="_blank">{{content.data.buttons[0]}}</a>
           <a data-toggle="modal" href="" (click)="setElement(index)" data-target="#ficha-tecnica" class="btn btn-outline-primary float-right">{{content.data.buttons[1]}}</a>
         </div>
       </div>
@@ -63,7 +73,7 @@
 
             <div class="form-group">
               <label>{{content.data.edit_menu.email_title}}</label>
-              <input #email="ngModel" name="email" [(ngModel)]="newContent.link" type="text" class="form-control" placeholder="www.exaple.com" required/>
+              <input #link="ngModel" name="link" [(ngModel)]="newContent.link" type="text" class="form-control" placeholder="www.exaple.com" required/>
             </div>
 
           </div>

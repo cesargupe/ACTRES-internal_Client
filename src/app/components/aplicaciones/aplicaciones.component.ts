@@ -68,7 +68,8 @@ export class AplicacionesComponent implements OnInit {
     if (!this.newContent.author) {
 
       content.data.applications.unshift({});
-      this.newContent.author = this.session.identity.team;
+      //this.newContent.author = this.session.identity.team;
+      this.newContent.author = 'ACTRES';
       this.newContent.acronym = this.session.identity.acronym;
 
     }

@@ -60,6 +60,22 @@ export class UsuariosComponent implements OnInit {
 
   }
 
+  deleteUser(userID, index){
+
+    this._userService.deleteUser(this.session.token, userID).subscribe(
+
+      response => {
+        this.users.splice(index, 1);
+      },
+
+      error =>{
+        if (error.status == 401) this._userService.removeSession();
+      }
+
+    );
+
+  }
+
   watchStorage(){
     this._userService.watchStorage().subscribe((data:string) => {
       this.session = this._userService.getSession();

@@ -66,7 +66,8 @@ export class CorpusParalelosComponent implements OnInit {
     if (!this.newContent.author) {
 
       content.data.corpus.unshift({});
-      this.newContent.author = this.session.identity.team;
+      //this.newContent.author = this.session.identity.team;
+      this.newContent.author = 'ACTRES';
       this.newContent.acronym = this.session.identity.acronym;
 
     }

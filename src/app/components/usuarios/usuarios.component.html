@@ -7,17 +7,19 @@
         <tbody *ngIf="users">
 
           <tr>
+            <th class="card-title" scope="row">Username</th>
             <th class="card-title" scope="row">Team</th>
-            <th class="card-title" scope="row">Place</th>
-            <th class="card-title" scope="row">Acronym</th>
             <th class="card-title" scope="row">Role</th>
+            <th class="card-title" scope="row">Actions</th>
           </tr>
 
           <tr *ngFor="let user of users; let i = index">
             <td class="text-justify">{{user.team}}</td>
             <td class="text-justify">{{user.place}}</td>
-            <td class="text-justify">{{user.acronym}}</td>
             <td class="text-justify">{{user.role}}</td>
+            <td class="text-center">
+              <button type="button" (click)="deleteUser(user._id, i)" class="btn btn-outline-danger">Eliminar</button>
+            </td>
           </tr>
 
         </tbody>

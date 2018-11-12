@@ -3,6 +3,10 @@
   margin-bottom: -2px;
 }
 
+img{
+  margin-top: -3px;
+}
+
 .grey_blue-backgroung {
   --background-color: #b8d4e4!important;
   background-color: #a9c5d6bf!important
@@ -14,13 +18,22 @@
 }
 
 .margin_left_right{
-  max-width: 1000px;
+  max-width: 1400px;
   margin-right: auto;
   margin-left: auto;
 }
 
+.border_radius_blue{
+    border-radius: 15px;
+    border: 1px solid rgba(97, 153, 185, 0.24);
+}
+
 .active{
   font-weight: 500;
+}
+
+.underlined{
+  text-decoration: underline;
 }
 
 .dropdown-item.active, .dropdown-item:active{

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { ContentService } from '../../services/content.service';
 import { UserService } from '../../services/user.service';
 
+declare var $:any;
+
 @Component({
   selector: 'app-acceso',
   templateUrl: './acceso.component.html',
@@ -60,6 +62,10 @@ export class AccesoComponent implements OnInit {
 
     );
 
+  }
+
+  closeModal(){
+    $('#modifyContent').modal('toggle');
   }
 
   watchStorage(){

@@ -50,8 +50,12 @@
 }
 
 .card-text{
-  height: 250px;
+  height: 150px;
   overflow: auto;
+}
+
+.bold{
+  font-weight: 400;
 }
 
 .margin_left-15{
