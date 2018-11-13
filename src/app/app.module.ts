@@ -3,8 +3,6 @@ import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
 
-import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { InicioComponent } from './components/inicio/inicio.component';
@@ -36,8 +34,7 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule,
-    NgxTwitterTimelineModule.forRoot()
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
