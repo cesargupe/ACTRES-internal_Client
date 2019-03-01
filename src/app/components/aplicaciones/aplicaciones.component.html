@@ -73,7 +73,7 @@
 
             <div class="form-group">
               <label>{{content.data.edit_menu.status.title}}</label>
-              <select #status="ngModel" name="status" [(ngModel)]="newContent.status" class="form-control" required>
+              <select #status="ngModel" name="status" [(ngModel)]="newContent.status" class="form-control">
                 <option *ngFor="let status of content.data.edit_menu.status.options" [value]="status.value">{{status.title}}</option>
               </select>
             </div>

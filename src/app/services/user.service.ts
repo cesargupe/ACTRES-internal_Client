@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
@@ -11,8 +11,8 @@ export class UserService {
   private storage = new Subject<string>();
 
   constructor(private _http: Http) {
-    this.url = 'http://localhost:3978/api/';
-    //this.url = 'http://actres.unileon.es/actres_internal/api/';
+    //this.url = 'http://localhost:3978/api/';
+    this.url = 'http://actres.unileon.es/actres_internal/api/';
   }
 
   watchStorage(): Observable<any> {
@@ -32,6 +32,21 @@ export class UserService {
     //this.loginGeneradores(user_to_login.team, user_to_login.password);
 
     return this._http.post(this.url + 'login/', params, options).map(res => res.json());
+
+  }
+
+  checkUser(token) {
+
+    let headers = new Headers({
+      'Content-Type':'application/json',
+      'Authorization':token
+    });
+
+    let options = new RequestOptions({headers: headers});
+
+    //this.loginGeneradores(user_to_login.team, user_to_login.password);
+
+    return this._http.get(this.url + 'check_token/', options).map(res => res.json());
 
   }
 
@@ -87,17 +102,17 @@ export class UserService {
 
   getSession(){
 
-    let sesion = {identity: '', token: ''};
+    let session = {identity: '', token: ''};
 
     if (localStorage.getItem('identity')) {
-        sesion.identity = JSON.parse(localStorage.getItem('identity'));
+        session.identity = JSON.parse(localStorage.getItem('identity'));
     }
 
     if (localStorage.getItem('token')) {
-        sesion.token = localStorage.getItem('token');
+        session.token = localStorage.getItem('token');
     }
 
-    return sesion;
+    return session;
 
   }
 
@@ -110,9 +125,10 @@ export class UserService {
 
   }
 
-  loginPHP() {
+  loginPHP(username, password) {
 
-    this.autoLogin('https://actres.unileon.es/internal/general_login?username=ACTRES&password=eWh0Z2ZyZWdldHJ5aGdiaGdydGVmZHRyaGdyZg7MTAwMg==');
+    this.autoLogin('https://actres.unileon.es/internal/general_login?username=' + username + '&password=' + password);
+    this.autoLogin('https://actres.unileon.es/P-ACTRES/login?username=' + username + '&password=' + password);
 
  }
 
@@ -138,7 +154,7 @@ export class UserService {
          console.log(error._body);
        }
      );
-     
+
    }
 
  }
@@ -149,7 +165,7 @@ export class UserService {
 
    setTimeout(function(){
      newWindow.close();
-   }, 1000);
+   }, 1500);
 
  }
 

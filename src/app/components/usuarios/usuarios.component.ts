@@ -15,7 +15,7 @@ export class UsuariosComponent implements OnInit {
   public error: any;
 
   constructor(private _userService: UserService) {
-    this.user = {'place':'Universidad de León', 'acronym':'ULE'};
+    this.user = {'place':'ACTRES', 'acronym':'ULE'};
     this.session = {identity: '', token: ''}
   }
 
@@ -38,6 +38,7 @@ export class UsuariosComponent implements OnInit {
       error =>{
         console.log(error._body);
       }
+
     );
 
   }
