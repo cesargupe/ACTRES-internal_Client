@@ -4,15 +4,17 @@ import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
 import { Subject } from 'rxjs/Subject';
 
+import { UserService } from './user.service';
+
 @Injectable()
 export class ContentService {
 
   public url: string;
   private storage = new Subject<string>();
 
-  constructor(private _http: Http) {
-    //this.url = 'http://localhost:3978/api/';
-    this.url = 'http://actres.unileon.es/actres_internal/api/';
+  constructor(private _http: Http, private _userService: UserService) {
+    this.url = 'http://localhost:3978/api/';
+    //this.url = 'https://actres.unileon.es/actres_internal/api/';
   }
 
   watchStorage(): Observable<any> {
@@ -39,8 +41,11 @@ export class ContentService {
 
   getContent(nameContent, language){
 
+    const session = this._userService.getSession();
+
     let headers = new Headers({
-      'Content-Type':'application/json'
+      'Content-Type':'application/json',
+      'Authorization':session.token
     });
 
     let options = new RequestOptions({headers: headers});
@@ -51,8 +56,11 @@ export class ContentService {
 
   getContentDatasheet(type){
 
+    const session = this._userService.getSession();
+
     let headers = new Headers({
-      'Content-Type':'application/json'
+      'Content-Type':'application/json',
+      'Authorization':session.token
     });
 
     let options = new RequestOptions({headers: headers});

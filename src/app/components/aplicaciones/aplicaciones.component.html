@@ -36,7 +36,7 @@
         <button type="button" (click)="deleteContent(index)" class="transparent btn btn-outline-danger btn-sm"><i class="far fa-trash-alt"></i></button>
       </div>
 
-      <a class="btn btn-outline-primary float-right margin_left-15" [href]="application.link" target="_blank">{{content.data.buttons[0]}}</a>
+      <a class="btn btn-outline-primary float-right margin_left-15" [href]="application.encode_link ? application.encode_link : application.link" target="_blank">{{content.data.buttons[0]}}</a>
     </div>
 
   </div>
