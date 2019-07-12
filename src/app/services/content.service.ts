@@ -14,7 +14,7 @@ export class ContentService {
 
   constructor(private _http: Http, private _userService: UserService) {
     this.url = 'http://localhost:3978/api/';
-    //this.url = 'https://actres.unileon.es/actres_internal/api/';
+    this.url = 'https://actres.unileon.es/actres_internal/api/';
   }
 
   watchStorage(): Observable<any> {

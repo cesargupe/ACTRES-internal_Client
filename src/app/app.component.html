@@ -23,6 +23,9 @@
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" [routerLink]="['/corpus-comparables']" [routerLinkActive]="['active']">{{content.data.top_menu[1].sublements[0].text}}</a>
             <a class="dropdown-item" [routerLink]="['/corpus-paralelos']" [routerLinkActive]="['active']">{{content.data.top_menu[1].sublements[1].text}}</a>
+            <a class="dropdown-item" [routerLink]="['/corpus-cetri']" [routerLinkActive]="['active']">{{content.data.top_menu[1].sublements[2].text}}</a>
+            <a class="dropdown-item" [routerLink]="['/corpus-corpes']" [routerLinkActive]="['active']">{{content.data.top_menu[1].sublements[3].text}}</a>
+            <a class="dropdown-item" [routerLink]="['/corpus-gedire']" [routerLinkActive]="['active']">{{content.data.top_menu[1].sublements[4].text}}</a>
           </div>
         </li>
         <li class="nav-item">
@@ -87,9 +90,10 @@
         <div class="row">
           <div class="mx-auto col-md-8">
             <div class="card border_radius_blue">
-              <div class="card-body">
-                <h3 class="text-center">Bienvenido a la plataforma de desarrollo para miembros del grupo de investigación ACTRES. Si lo que está buscando es la página web del grupo, diríjase a <a class="underlined" href="https://actres.unileon.es/wordpress">ACTRES</a>.</h3>
-                <br><br><br><br><br><br><h4 class="text-center">En caso contrario, inicie sesión <a class="underlined" href="#" data-toggle="modal" data-target="#modifyContent">aquí</a><app-acceso></app-acceso></h4>
+              <div class="card-body text-center">
+                <h3 class="text-center">Bienvenido a la plataforma de desarrollo para miembros del grupo de investigación ACTRES.</h3>
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modifyContent">Iniciar sesión</button>
+                <br><br><br><br><br><br><h4 class="text-center">Si no es miembro del grupo, diríjase a <a class="underlined" href="https://actres.unileon.es">ACTRES</a><app-acceso></app-acceso></h4>
               </div>
             </div>
           </div>

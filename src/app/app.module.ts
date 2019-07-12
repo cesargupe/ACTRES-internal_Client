@@ -10,6 +10,9 @@ import { Error500Component } from './components/error500/error500.component';
 import { Error404Component } from './components/error404/error404.component';
 import { CorpusComparablesComponent } from './components/corpus-comparables/corpus-comparables.component';
 import { CorpusParalelosComponent } from './components/corpus-paralelos/corpus-paralelos.component';
+import { CorpusCetriComponent } from './components/corpus-cetri/corpus-cetri.component';
+import { CorpusCorpesComponent } from './components/corpus-corpes/corpus-corpes.component';
+import { CorpusGedireComponent } from './components/corpus-gedire/corpus-gedire.component';
 import { HerramientasComponent } from './components/herramientas/herramientas.component';
 import { AplicacionesComponent } from './components/aplicaciones/aplicaciones.component';
 import { FichaTecnicaComponent } from './components/ficha-tecnica/ficha-tecnica.component';
@@ -24,6 +27,9 @@ import { UsuariosComponent } from './components/usuarios/usuarios.component';
     Error404Component,
     CorpusComparablesComponent,
     CorpusParalelosComponent,
+    CorpusCorpesComponent,
+    CorpusGedireComponent,
+    CorpusCetriComponent,
     HerramientasComponent,
     AplicacionesComponent,
     FichaTecnicaComponent,

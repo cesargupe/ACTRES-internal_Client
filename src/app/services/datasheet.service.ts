@@ -9,7 +9,7 @@ export class DatasheetService {
 
   constructor(private _http: Http) {
     this.url = 'http://localhost:3978/api/';
-    //this.url = 'https://actres.unileon.es/actres_internal/api/';
+    this.url = 'https://actres.unileon.es/actres_internal/api/';
   }
 
   getDatasheet(name, type){
