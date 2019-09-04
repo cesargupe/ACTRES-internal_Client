@@ -30,8 +30,8 @@
         <div class="card-body">
           <h5 class="card-title">{{corpus.name}}</h5>
           <!--<p class="card-text text-justify">{{corpus.description}}</p>-->
-          <a [href]="corpus.link" class="btn btn-primary float-right margin_left-15" target="_blank">{{content.data.buttons[2]}}</a>
-          <a [href]="corpus.link" class="btn btn-outline-primary float-right margin_left-15" target="_blank">{{content.data.buttons[0]}}</a>
+          <a [href]="corpus.encode_acceso ? corpus.encode_acceso : corpus.acceso" class="btn btn-primary float-right margin_left-15" target="_blank">{{content.data.buttons[2]}}</a>
+          <a [href]="corpus.encode_link ? corpus.encode_link : corpus.link" class="btn btn-outline-primary float-right margin_left-15" target="_blank">{{content.data.buttons[0]}}</a>
           <a data-toggle="modal" href="" (click)="setElement(index)" data-target="#ficha-tecnica" class="btn btn-outline-primary float-right">{{content.data.buttons[1]}}</a>
         </div>
       </div>
